@@ -18,10 +18,10 @@ const SessionStopped: React.FC<SessionStoppedProps> = ({ startSession }) => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-full">
+    <div>
       <Button
         onClick={handleStartSession}
-        className="flex gap-2 items-center bg-bodydark1 py-4 px-6 rounded-full text-base text-graydark"
+        className=""
       >
         <Mic height={16} />{' '}
         {isActivating ? 'Connecting...' : 'Start Conversation'}
@@ -58,31 +58,31 @@ const SessionActive: React.FC<SessionActiveProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-full gap-4">
+    <div>
       <input
         type="text"
         placeholder="Send a text message..."
-        className="border border-[#E7E7E7] bg-graydark rounded-2xl p-4 min-w-full flex text-bodydark1 dark:bg-bodydark2 dark:border-none"
+ 
         value={message}
         onKeyDown={handleKeyDown}
         onChange={handleChange}
       />
       <Button
         onClick={handleSendClientEvent}
-        className="rounded-3xl p-4 w-16 h-16 bg-body text-graydark"
+
       >
         <Send height={16} />
       </Button>
       <Button
         onClick={toggleMute}
-        className="rounded-3xl p-4 w-20 h-16 bg-body text-graydark"
+
       >
         {isMuted ? <MicOff height={16} /> : <Mic height={16} />}
       </Button>
 
       <Button
         onClick={stopSession}
-        className="rounded-3xl p-4 w-16 h-16 bg-body text-graydark"
+
       >
         <XCircle height={16} />
       </Button>

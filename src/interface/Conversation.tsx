@@ -6,6 +6,7 @@ import { SolaAgent } from '../agent';
 import SessionControls from '../session/SessionControls';
 import useFunctionState from '../zustand/FunctionState';
 
+
 interface ConversationProps {
   agent: SolaAgent; 
 }
@@ -207,16 +208,24 @@ const startSession = async () => {
       ) {
         for (const output of mostRecentEvent.response.output) {
           if (output.type === 'function_call') {
-
+            console.log(output.arguments.length)
             let functions = useFunctionState.getState().functions;
             const functionName = output.name;
-            console.log(output.arguments)
             const functionToCall = functions[functionName];
             if (functionToCall) {
-
-              const functionResponse = await functionToCall(output.arguments);
-              const response = agent.responseToOpenai(functionResponse);
-              sendClientEvent(response)
+              if (output.arguments.length == 2) {
+                console.log("no args");
+                console.log(functionToCall)
+                const functionResponse = await functionToCall();
+                
+                const response = agent.responseToOpenai(functionResponse);
+                sendClientEvent(response)
+              }
+              else { const functionResponse = await functionToCall(output.arguments);
+                const response = agent.responseToOpenai(functionResponse);
+                sendClientEvent(response)
+              }
+              
             }
           }
         }
