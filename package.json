@@ -16,7 +16,7 @@
     "axios": "^1.7.9",
     "bs58": "^6.0.0",
     "dotenv": "^16.4.7",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "react-dom": "^18.3.1",
     "react-feather": "^2.0.10",
     "reflect-metadata": "^0.2.2",
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "@types/react": "^18.3.18",
+    "@types/react": "^19.0.8",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
